@@ -168,10 +168,9 @@ function nouveauBot() {
     });
     bot();
     tempsNouveauBot -= 10;
-    console.log(tempsNouveauBot);
     setTimeout(nouveauBot, tempsNouveauBot);
   } else {
-    nouveauBot();
+    setTimeout(nouveauBot, tempsNouveauBot);
   }
 }
 nouveauBot();
