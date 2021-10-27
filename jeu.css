@@ -1,0 +1,214 @@
+@font-face {
+  font-family: "Pequena Neo";
+  src: url("assets/PequenaNeo-Black.woff2") format("woff2"),
+    url("assets/PequenaNeo-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pequena Neo";
+  src: url("assets/PequenaNeo-Bold.woff2") format("woff2"),
+    url("assets/PequenaNeo-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pequena Neo";
+  src: url("assets/PequenaNeo-Regular.woff2") format("woff2"),
+    url("assets/PequenaNeo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(199, 95, 0, 0.2) 0%,
+      rgba(170, 84, 5, 0.2) 0.01%,
+      rgba(127, 66, 11, 0.2) 100%
+    ),
+    #ffe5cf;
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: 20% auto 10%;
+  font-family: "Pequena Neo";
+}
+
+header {
+  grid-area: header;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+header .logo {
+  height: 60%;
+}
+
+header .vies {
+  display: flex;
+}
+
+header .vie {
+  width: 4vw;
+  transition: 0.3s;
+}
+
+main {
+  position: relative;
+  grid-area: main;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+
+main .scores {
+  position: absolute;
+  top: -20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main .score {
+  display: block;
+  margin: 0;
+  font-size: 6rem;
+  font-weight: 900;
+  color: #4d2500;
+}
+
+main .meilleurscore {
+  margin: 0;
+  font-weight: bold;
+  color: #4d2500;
+}
+
+main svg {
+  position: absolute;
+}
+
+footer {
+  grid-area: footer;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  width: 90%;
+}
+
+footer p {
+  font-size: 1.2rem;
+}
+
+.player {
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tirplayer {
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bot {
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tirbot {
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* PAUSE */
+
+.pause {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(77, 37, 0, 0.4);
+  backdrop-filter: blur(6px);
+}
+
+.pause img {
+  cursor: pointer;
+}
+
+/* MORT */
+
+.mort {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(77, 37, 0, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+.mort .zut {
+  width: 60%;
+}
+
+.mort .bouton {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+
+.mort .retry {
+  width: 80%;
+}
+
+.mort .beuleu_mort {
+  left: 50%;
+  top: 0;
+  position: absolute;
+  display: block;
+  width: 80%;
+  transform: translate(-50%, -75%);
+}
+
+.mort p {
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 120%;
+}
+
+/* SCORE */
+
+.score3 {
+  color: #4d2500 !important;
+}
+.score4 {
+  color: #c75f00 !important;
+}
+.score5 {
+  color: #ee3636 !important;
+}
+.score6 {
+  color: #ed47b5 !important;
+}
+.score7 {
+  color: #0ebdc3 !important;
+}

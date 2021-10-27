@@ -1,0 +1,125 @@
+@font-face {
+  font-family: "Pequena Neo";
+  src: url("assets/PequenaNeo-Black.woff2") format("woff2"),
+    url("assets/PequenaNeo-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pequena Neo";
+  src: url("assets/PequenaNeo-Bold.woff2") format("woff2"),
+    url("assets/PequenaNeo-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pequena Neo";
+  src: url("assets/PequenaNeo-Regular.woff2") format("woff2"),
+    url("assets/PequenaNeo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(199, 95, 0, 0.2) 0%,
+      rgba(170, 84, 5, 0.2) 0.01%,
+      rgba(127, 66, 11, 0.2) 100%
+    ),
+    #ffe5cf;
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: 20% auto 10%;
+  font-family: "Pequena Neo";
+}
+
+header {
+  grid-area: header;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+header img {
+  height: 60%;
+}
+
+header p {
+  color: #140c00;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+main {
+  position: relative;
+  grid-area: main;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+
+main .h1 {
+  position: absolute;
+  top: 0;
+  font-size: 10rem;
+  color: #db1414;
+  width: 100%;
+}
+
+main .text {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+}
+
+main .text img {
+  width: 30%;
+}
+
+main .text p {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 125%;
+  color: #140c00;
+}
+
+main a {
+  display: block;
+  padding: 26px 42px;
+  background: #c75f00;
+  border: 4px solid #140c00;
+  border-radius: 36px;
+  box-shadow: 6px 6px 0px #7c3e05;
+
+  font-size: 2rem;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 900;
+}
+
+footer {
+  grid-area: footer;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  width: 90%;
+}
+
+footer p {
+  font-size: 1.2rem;
+}

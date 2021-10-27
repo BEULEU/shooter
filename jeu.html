@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BEULEU</title>
+    <link rel="icon" type="image/png" href="assets/beuleu_face.png" />
+    <script src="d3.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="jeu.css" />
+  </head>
+  <body>
+    <div class="pause">
+      <img src="assets/pause.svg" alt="" srcset="" />
+    </div>
+    <div class="mort">
+      <img class="zut" src="assets/zut.png" alt="" srcset="">
+      <div class="bouton">
+        <img class="retry" src="assets/retry.svg" alt="" srcset="" />
+        <img
+          class="beuleu_mort"
+          src="assets/beuleu_mort.png"
+          alt=""
+          srcset=""
+        />
+      </div>
+      <p>
+        Merci pour ton aide, tu as fait un score de <span></span><br />
+        Retente ta chance pour faire mieux !
+      </p>
+    </div>
+    <header>
+      <img class="logo" src="assets/logo.png" alt="" srcset="" />
+      <div class="vies">
+        <img class="vie vie1" src="assets/vie.png" alt="" srcset="">
+        <img class="vie vie2" src="assets/vie.png" alt="" srcset="">
+        <img class="vie vie3" src="assets/vie.png" alt="" srcset="">
+      </div>
+    </header>
+    <main>
+      <div class="scores">
+        <p class="score"></p>
+        <p class="meilleurscore">Meilleur score : <span>0</span></p>
+      </div>
+      <svg width="140vmin" height="80vmin" viewBox="0 0 140 80">
+        <defs>
+          <image id="3" href="assets/beuleu1.png" width="10" height="10" transform="translate(-5,-5)">
+          <image id="2" href="assets/beuleu2.png" width="10" height="10" transform="translate(-5,-5)">
+          <image id="1" href="assets/beuleu3.png" width="10" height="10"transform="translate(-5,-5)">
+          <image id="barbarbecue" href="assets/barbarbecue.png" width="10" height="10" transform="translate(-5,-5)">
+          <image id="eau" href="assets/eau.png" width="4" height="4" transform="translate(-2,-2)">
+          <image id="feu" href="assets/feu.png" width="4" height="4" transform="translate(-2,-2)">                 
+        </defs>
+        <g class="playerzone">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M35.3718 0.5L36.3974 7.5C37.4231 13.5 39.4744 27.5 39.4744 40.5C40.5 53.5 40.5 67.5 40.5 73.5L40.5 80.5L0.499994 80.5L0.499995 73.5C0.499995 67.5 0.499995 53.5 0.499996 40.5C0.499997 27.5 0.499997 13.5 0.499997 7.5L0.499998 0.499999L35.3718 0.5Z" fill="#0099FF"/>        </g>
+        <g id="tirs">
+        </g>
+        <g id="persos">
+          <use href="#3" class="player" x="10" y="40"></use>
+        </g>            
+      </svg>
+    </main>
+    <footer>
+      <p>Réalisé par <b>Aurélien Louvel</b> et <b>Claire Martin</b></p>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

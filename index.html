@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BEULEU</title>
+    <link rel="icon" type="image/png" href="assets/beuleu_face.png" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header>
+      <img src="assets/logo.png" alt="" srcset="" />
+      <p class="meilleurscore">Meilleur score : <span>0</span></p>
+    </header>
+    <main>
+      <img class="h1" src="assets/au_secours.png" alt="" srcset="" />
+      <div class="text">
+        <img src="assets/beuleu_face.png" alt="" />
+        <p>
+          Des barbarbecues veulent me cuire !<br />
+          Aide moi à les combattre ️en les arrosant
+        </p>
+      </div>
+      <a class="jouer" href="jeu.html">Sauver beuleu</a>
+    </main>
+    <footer>
+      <p>Réalisé par <b>Aurélien Louvel</b> et <b>Claire Martin</b></p>
+    </footer>
+    <script src="d3.js"></script>
+    <script>
+      const stockage = window.localStorage;
+      const meilleurscore = localStorage.getItem("beuleu");
+      if (meilleurscore !== null) {
+        d3.select(".meilleurscore span").html(meilleurscore);
+      }
+    </script>
+  </body>
+</html>
