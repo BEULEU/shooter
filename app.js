@@ -170,6 +170,8 @@ function nouveauBot() {
     tempsNouveauBot -= 10;
     console.log(tempsNouveauBot);
     setTimeout(nouveauBot, tempsNouveauBot);
+  } else {
+    nouveauBot();
   }
 }
 nouveauBot();
