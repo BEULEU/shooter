@@ -7,14 +7,27 @@ let coordonneesplayer = [];
 let coordonneesbot = [];
 let playerx = 10;
 let playery = 40;
-
-// CONFIGURATION
-let tempsNouveauTirPlayer = 500;
-let tempsNouveauBot = 1500;
-let tempsNouveauTirBot = 2000;
-
 let pause = false;
 let mort = false;
+
+// CONFIGURATION
+
+let tempsNouveauTirPlayer = 500;
+let tempsNouveauBot = 1000;
+let tempsNouveauTirBot = 2000;
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "config.json");
+xhr.addEventListener("load", config);
+xhr.send();
+
+function config() {
+  let json = this.responseText;
+  var data = JSON.parse(json);
+  tempsNouveauTirPlayer = data.tempsNouveauTirPlayer;
+  tempsNouveauBot = data.tempsNouveauBot;
+  tempsNouveauTirBot = data.tempsNouveauTirBot;
+}
 
 //HTML
 let tirs = d3.select("svg #tirs");
@@ -108,15 +121,19 @@ setInterval(function () {
   }
 }, 50);
 
-setInterval(function () {
+function nouveauTirPlayer() {
   if (!pause) {
     coordonneestirplayer.push({
       x: playerx,
       y: playery,
     });
     tirplayer();
+    setTimeout(nouveauTirPlayer, tempsNouveauTirPlayer);
+  } else {
+    setTimeout(nouveauTirPlayer, tempsNouveauTirPlayer);
   }
-}, tempsNouveauTirPlayer);
+}
+nouveauTirPlayer();
 
 //BOT
 function bot() {
@@ -227,7 +244,7 @@ setInterval(function () {
   }
 }, 50);
 
-setInterval(function () {
+function nouveauTirBot() {
   if (!pause) {
     coordonneesbot.forEach(function (bot, i) {
       coordonneestirbot.push({
@@ -235,11 +252,14 @@ setInterval(function () {
         y: bot.y,
         vitesse: bot.vitesse,
       });
-
-      tirbot();
     });
+    tirbot();
+    setTimeout(nouveauTirBot, tempsNouveauTirBot);
+  } else {
+    setTimeout(nouveauTirBot, tempsNouveauTirBot);
   }
-}, tempsNouveauTirBot);
+}
+nouveauTirBot();
 
 //COLLISIONS
 function distance(a, b) {
@@ -323,3 +343,9 @@ const meilleurscore = localStorage.getItem("beuleu");
 if (meilleurscore !== null) {
   d3.select(".meilleurscore span").html(meilleurscore);
 }
+
+//FENETRE ACTIVE
+window.addEventListener("blur", () => {
+  pause = true;
+  d3.select(".pause").style("display", "flex");
+});
